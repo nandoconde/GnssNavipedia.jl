@@ -1,7 +1,6 @@
 module GnssNavipedia
 
 
-
 import GnssCore
 using GnssCore.Types
 import GnssCore.Interface: get_constellations, get_bands, get_signals

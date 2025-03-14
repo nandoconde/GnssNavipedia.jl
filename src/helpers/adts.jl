@@ -9,4 +9,5 @@ function add_adt_exports(Mod::Module)
     for m in member_names
         @eval Mod export $(m)
     end
+    return
 end

@@ -40,7 +40,7 @@ struct CodeStorage
         L = length(memory_storage)
         L_exp = code_length * no_codes
         if L != L_exp
-           throw(ErrorException(lazy"length(memory_storage) = $L, expected $L_exp"))
+            throw(ErrorException(lazy"length(memory_storage) = $L, expected $L_exp"))
         end
         return new(code_length_, no_codes_, Memory{Int8}(memory_storage))
     end

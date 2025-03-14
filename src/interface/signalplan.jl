@@ -1,4 +1,3 @@
-
 function get_constellations(::Navipedia)
     return Constellations
 end

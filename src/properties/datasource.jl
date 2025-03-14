@@ -3,7 +3,7 @@
 
 ADT module with all types of data sources GNSS signals may carry.
 """
-@data DataSource begin 
+@data DataSource begin
     Pilot
     Data(NavData.Type)
 end
