@@ -1,52 +1,33 @@
 module GnssNavipedia
 
-using Moshi.Data.Prelude
 
-import GnssCore: AbstractNavipedia, AbstractConstellation, AbstractSignalBand, AbstractSignalComponent
-import GnssCore: get_constellations, get_signal_bands, get_signal_types
 
-struct Navipedia <: AbstractNavipedia end
+import GnssCore
+using GnssCore.Types
+import GnssCore.Interface: get_constellations, get_bands, get_signals
+using GnssCore.Constants.Frequencies
 
-@data Constellations <: AbstractConstellation begin
-    GPS
-    GALILEO
-    GLONASS
-end
+include("definitions/definitions.jl")
+using .Definitions
 
-@data SignalBands <: AbstractSignalBand begin
-    L1
-    L2
-    L5
-    E1
-    E5
-    E6
-end
+include("properties/properties.jl")
+using .Properties
 
-@data SignalComponents <: AbstractSignalComponent begin
-    L1C
-    L2C
-    L5I
-    L5Q
-    E1B
-    E1C
-    E5aI
-    E5aQ
-    E5bI
-    E5bQ
-    E6B
-    E6C
-end
+const D_SIGNALS::Dict{Signals.Type, SignalProperties} = Dict{Signals.Type, SignalProperties}()
+include("navipedia/navipedia.jl")
+include("interface/interface.jl")
 
-function get_constellations(::Navipedia)
-    return Constellations
-end
 
-function get_signal_bands(::Navipedia)
-    return SignalBands
-end
-
-function get_signal_types(::Navipedia)
-    return SignalComponents
-end
+# TODO
+# - Dict with SignalProperties per Signal
+# - Implement getter/setter interfaces
+# - Two methods per getter/setter:
+#   1. get_xxxxxx(::Navipedia, s::Signals.Type)
+#   2. get_xxxxxx(s::Signals.Type)
+#   The second method calls the first, retrieving the active Navipedia from a ScopeValue
+#   This way, the user can modify a local navipedia and provide it.
+#   So, this mega_dictionary with signal properties must live within the Navipedia object
+#   And so on with every needed object.
+#
 
 end
