@@ -16,6 +16,8 @@ const D_SIGNALS::Dict{Signals.Type, SignalProperties} = Dict{Signals.Type, Signa
 include("navipedia/navipedia.jl")
 include("interface/interface.jl")
 
+# precompile usual code
+include("precompile.jl")
 
 # TODO
 # - Dict with SignalProperties per Signal

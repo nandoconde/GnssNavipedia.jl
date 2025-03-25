@@ -7,11 +7,13 @@ version = "1.0.0-DEV"
 GnssCore = "83d6b3ca-79e9-4c81-b7dd-e779326cdb4c"
 GnssDates = "e3dbbf4c-e8f6-588c-bc4a-4c34f15afb57"
 Moshi = "2e0e35c7-a2e4-4343-998d-7ef72827ed2d"
+PrecompileTools = "aea7be01-6a6a-4083-8856-8a6e6704d82a"
 
 [compat]
 GnssCore = "1.0.0"
 GnssDates = "0.1.0"
 Moshi = "0.3.5"
+PrecompileTools = "1.2.1"
 julia = "1.11"
 
 [extras]

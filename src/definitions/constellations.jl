@@ -8,6 +8,9 @@ ADT module with main GNSS constellations.
     GALILEO
     GLONASS
     BEIDOU
+    SBAS
+    QZSS
+    NAVIC
 end
 @derive Constellations[Show]
 add_adt_exports(Constellations)
